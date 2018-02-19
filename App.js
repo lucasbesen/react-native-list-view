@@ -13,9 +13,24 @@ import {
   Platform
 } from 'react-native';
 
+import Student from './components/Student';
+
 export default class App extends Component {
   state = {
-    
+    students: [
+      {
+        id: 1,
+        thumbnail: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKOA3tAE8n9J_1MXpJ3CDH-GT3cWysa0Il7dpNksxpTlyugDgp',
+        name: 'teste',
+        description: 'adadd',
+      },
+      {
+        id: 2,
+        thumbnail: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKOA3tAE8n9J_1MXpJ3CDH-GT3cWysa0Il7dpNksxpTlyugDgp',
+        name: 'teste',
+        description: 'adadd',
+      },
+    ]
   };
 
   render() {
@@ -26,10 +41,8 @@ export default class App extends Component {
         </View>
 
         <ScrollView contentContainerStyle={styles.studentList}>
-          <View style={styles.student} />
-          <View style={styles.student} />
-          <View style={styles.student} />
-          <View style={styles.student} />
+          { this.state.students.map(student => 
+          <Student key={student.id} data={student} />) }
         </ScrollView>
       </View>
     );
@@ -58,13 +71,5 @@ const styles = StyleSheet.create({
   studentList: {
     padding: 20,
   },
-
-  student: {
-    padding: 20,
-    backgroundColor: '#FFF',
-    height: 120,
-    marginBottom: 20,
-    borderRadius: 5,
-  }
 
 });
