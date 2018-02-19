@@ -11,7 +11,8 @@ import {
   ScrollView,
   View,
   Platform,
-  TouchableOpacity
+  TouchableOpacity,
+  AsyncStorage
 } from 'react-native';
 
 import Student from './components/Student';
@@ -20,9 +21,7 @@ import NewStudentModal from './components/NewStudentModal';
 export default class App extends Component {
   state = {
     modalVisible: false,
-    students: [
-      
-    ]
+    students: [],
   };
 
   _addStudent = (newStudentId, newStudentName, newStudentDescription) => {
